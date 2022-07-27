@@ -20,10 +20,10 @@ def pinoff(pin):
 
 for pin in signal_pins:
     pinon(pin)
-    sleep(2)
+    sleep(0.5)
 
 for pin in signal_pins:
     pinoff(pin)
-    sleep(1)
+    sleep(0.5)
 
 GPIO.cleanup()
