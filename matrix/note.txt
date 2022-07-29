@@ -1,0 +1,4 @@
+(+ ,- ) | (C, R) | Status
+(16,12) | (8, 4) | Ded
+(3 ,9 ) | (2, 1) | Ded, affecting corresponding row and column
+(3 ,12) | (2, 4) | slightly flickering(?)
