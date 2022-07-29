@@ -1,11 +1,11 @@
-# SBx4HC08 IC Chip
+# works on HC00, HC08, HC32, HC86 IC Chip
 
 import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BCM)
 
-signal_pins = [2,3,4,5,9,10,12,13]
+signal_pins = [1,2,4,5,9,10,12,13]
 
 for pin in signal_pins:
     GPIO.setup(pin, GPIO.OUT)
