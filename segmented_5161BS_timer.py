@@ -1,8 +1,10 @@
 from RPi.GPIO import cleanup
-from segmented_5161BS import setup, displayNumber, turnALLoff
+from segmented_5161BS import setup, instruction, displayNumber, turnALLoff
 from time import sleep
+
 def main():
     setup()
+    instruction()
     try:
         while(True):
             for i in range(10):

@@ -5,6 +5,9 @@ GPIO.setmode(GPIO.BCM)
 ON = GPIO.HIGH
 OFF = GPIO.LOW
 
+# Debug (showing live log) mode
+debug = False
+
 segment_pin = {
         'A': 1,
         'B': 2,
@@ -29,23 +32,42 @@ number_presets = {
         0 : ['A','B','C','D','E','F']
         }
 
+# GPIO Board and pin setup. More on instruction()
 def setup():
     for pin in segment_pin.values():
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, OFF)
 
+def instruction():
+    print("""
+    =================
+    WIRING SCHEME:
+     GPIOx | SEGMENT
+       1   |    A
+       2   |    B
+       3   |    C
+       4   |    D
+       5   |    E
+       6   |    F
+       7   |    G
+       8   |    DP
+    =================""")
+
 def turnon(segment_choice):
     pin = segment_pin[segment_choice]
     GPIO.output(pin, ON)
-    print("pin " + str(pin) + " is set to ON!")
-    print("segment " + segment_choice + " is on!")
+    if debug:
+        print("pin " + str(pin) + " is set to ON!")
+        print("segment " + segment_choice + " is on!")
 
 def turnoff(segment_choice):
     GPIO.output(segment_pin[segment_choice], OFF)
-    print("segment " + segment_choice + " is off!")
+    if debug:
+        print("segment " + segment_choice + " is off!")
 
 def turnALLoff():
-    print("turning off all pins!")
+    if debug:
+        print("turning off all pins!")
     for pin in segment_pin.values():
         GPIO.output(pin, OFF)
 
@@ -69,7 +91,3 @@ def main():
     except KeyboardInterrupt:
         turnALLoff()
         GPIO.cleanup()
-
-
-
-
