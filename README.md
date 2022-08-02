@@ -10,7 +10,6 @@
 - Note: Failed project due to broken component.
   
 ### Segmented displays
-- Single digit 7-segments: [5161BS](/segmented%20display/5161BS/)
-- 2-digit 7-segments: [?](/segmented%20display/?/)
-- 3-digit 7-segments: [5631BH](/segmented%20display/5631BH/)
-- 4-digit 7-segments: [3461BS](/segmented%20display/3461BS/)
+- Single digit 7-segments: [1-5161BS](/segmented%20display/1-5161BS/)
+- 3-digit 7-segments: [3-5631BH](/segmented%20display/3-5631BH/)
+- 4-digit 7-segments: [4-3461BS](/segmented%20display/4-3461BS/)
