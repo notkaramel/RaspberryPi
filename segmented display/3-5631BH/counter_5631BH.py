@@ -1,6 +1,6 @@
 from time import sleep
 import RPi.GPIO as gpio
-from setup_5631BH import setup, digit_show
+from setup_5631BH import setup, digit_show, digit_pins
 
 
 def display(number):
@@ -9,11 +9,11 @@ def display(number):
     time = 0.0
     while (number < 1000 and number >= 0):
         while time < hold:
-            digit_show(2, int(number/100))
+            digit_show(digit_pins()[0], int(number/100))
             sleep(t)
-            digit_show(3, int(number/10) % 10)
+            digit_show(digit_pins()[1], int(number/10) % 10)
             sleep(t)
-            digit_show(4, number % 10)
+            digit_show(digit_pins()[2], number % 10)
             sleep(t)
             time+=0.1
         number += 1

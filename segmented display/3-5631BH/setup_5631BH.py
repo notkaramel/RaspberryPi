@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 def digit_pins():
-    return [2,3,4]
+    return [17,10,5]
 
 def segment_pins():
     return {
@@ -78,5 +78,5 @@ def loop():
         print("\nProgram stopped by user.")
         exit()
 
-
+print("\nPlease check wiring.md for wiring details!\n")
 # loop()
