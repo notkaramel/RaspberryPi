@@ -22,7 +22,7 @@ def setup():
         GPIO.output(pin, GPIO.LOW)
     for pin in digit_pins():
         GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, GPIO.LOW)
+        GPIO.output(pin, GPIO.HIGH)
 
 def numbers():
     return {
@@ -57,17 +57,21 @@ def show_number(number):
         print("Invalid number")
 
 def digit_show(digit, number):
-    GPIO.output(digit, GPIO.HIGH)
-    show_number(number)
-    GPIO.output(digit, GPIO.LOW)   
+    show_number(number)   
+    for pin in digit_pins():
+        if pin == digit:
+            GPIO.output(pin, GPIO.HIGH)
+        else:
+            GPIO.output(pin, GPIO.LOW)
 
-def main():
+def loop():
     try:
-        setup()
-        GPIO.output(digit_pins()[0], GPIO.HIGH)
-        for j in range(0,10):
-            show_number(j)
-            sleep(1)
+        setup() 
+        for digit in digit_pins():
+            for i in range(0,10):
+                digit_show(digit, i)
+                sleep(1)
+            sleep(1) 
         turnAllOff()
     except KeyboardInterrupt:
         GPIO.cleanup()
@@ -75,4 +79,4 @@ def main():
         exit()
 
 
-main()
+# loop()
