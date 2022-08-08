@@ -64,6 +64,10 @@ def digit_show(digit, number):
         else:
             GPIO.output(pin, GPIO.LOW)
 
+def terminate():
+    GPIO.cleanup()
+    print("\nProgram stopped by user.")
+
 def loop():
     try:
         setup() 
@@ -74,8 +78,7 @@ def loop():
             sleep(1) 
         turnAllOff()
     except KeyboardInterrupt:
-        GPIO.cleanup()
-        print("\nProgram stopped by user.")
+        terminate()
         exit()
 
 print("\nPlease check wiring.md for wiring details!\n")
